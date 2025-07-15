@@ -1,13 +1,8 @@
 import React from 'react';
-<<<<<<< HEAD
-
-const Navbar = () => {
-=======
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const location = useLocation();
->>>>>>> master
   return (
     <nav className="bg-white shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,30 +25,21 @@ const Navbar = () => {
           {/* Navigation Links */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-<<<<<<< HEAD
-              <a href="#" className="text-gray-900 hover:text-primary px-3 py-2 text-sm font-medium">
-                Home
-              </a>
-              <a href="#" className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">
-                About Us
-              </a>
-=======
               <Link to="/" className={`px-3 py-2 text-sm font-medium ${location.pathname === '/' ? 'text-gray-900' : 'text-gray-500'} hover:text-primary`}>
                 Home
               </Link>
               <Link to="/about" className={`px-3 py-2 text-sm font-medium ${location.pathname === '/about' ? 'text-gray-900' : 'text-gray-500'} hover:text-primary`}>
                 About Us
               </Link>
->>>>>>> master
               <a href="#" className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">
                 Academics
               </a>
               <a href="#" className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">
                 Services
               </a>
-              <a href="#" className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">
+              <Link to="/contact" className={`px-3 py-2 text-sm font-medium ${location.pathname === '/contact' ? 'text-gray-900' : 'text-gray-500'} hover:text-primary`}>
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
 
