@@ -1,13 +1,9 @@
 import React from 'react';
-<<<<<<< HEAD
-
-const Navbar = () => {
-=======
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const location = useLocation();
->>>>>>> master
+
   return (
     <nav className="bg-white shadow-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,28 +26,40 @@ const Navbar = () => {
           {/* Navigation Links */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-<<<<<<< HEAD
-              <a href="#" className="text-gray-900 hover:text-primary px-3 py-2 text-sm font-medium">
-                Home
-              </a>
-              <a href="#" className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">
-                About Us
-              </a>
-=======
-              <Link to="/" className={`px-3 py-2 text-sm font-medium ${location.pathname === '/' ? 'text-gray-900' : 'text-gray-500'} hover:text-primary`}>
+              <Link
+                to="/"
+                className={`px-3 py-2 text-sm font-medium ${
+                  location.pathname === '/' ? 'text-gray-900' : 'text-gray-500'
+                } hover:text-primary`}
+              >
                 Home
               </Link>
-              <Link to="/about" className={`px-3 py-2 text-sm font-medium ${location.pathname === '/about' ? 'text-gray-900' : 'text-gray-500'} hover:text-primary`}>
+              <Link
+                to="/about"
+                className={`px-3 py-2 text-sm font-medium ${
+                  location.pathname === '/about' ? 'text-gray-900' : 'text-gray-500'
+                } hover:text-primary`}
+              >
                 About Us
               </Link>
->>>>>>> master
-              <a href="#" className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">
+              <a
+                href="#"
+                className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium"
+              >
                 Academics
               </a>
-              <a href="#" className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">
+              <Link
+                to="/services"
+                className={`px-3 py-2 text-sm font-medium ${
+                  location.pathname === '/about' ? 'text-gray-900' : 'text-gray-500'
+                } hover:text-primary`}
+              >
                 Services
-              </a>
-              <a href="#" className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium">
+              </Link>
+              <a
+                href="#"
+                className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium"
+              >
                 Contact
               </a>
             </div>
@@ -67,8 +75,18 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button className="text-gray-500 hover:text-gray-700">
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </button>
           </div>
