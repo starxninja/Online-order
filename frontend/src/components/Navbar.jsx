@@ -42,26 +42,30 @@ const Navbar = () => {
               >
                 About Us
               </Link>
-              <a
-                href="#"
-                className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium"
+              <Link
+                to="/academics"
+                className={`px-3 py-2 text-sm font-medium ${
+                  location.pathname === '/academics' ? 'text-gray-900' : 'text-gray-500'
+                } hover:text-primary`}
               >
                 Academics
-              </a>
+              </Link>
               <Link
                 to="/services"
                 className={`px-3 py-2 text-sm font-medium ${
-                  location.pathname === '/about' ? 'text-gray-900' : 'text-gray-500'
+                  location.pathname === '/services' ? 'text-gray-900' : 'text-gray-500'
                 } hover:text-primary`}
               >
                 Services
               </Link>
-              <a
-                href="#"
-                className="text-gray-500 hover:text-primary px-3 py-2 text-sm font-medium"
+              <Link
+                to="/contact"
+                className={`px-3 py-2 text-sm font-medium ${
+                  location.pathname === '/contact' ? 'text-gray-900' : 'text-gray-500'
+                } hover:text-primary`}
               >
                 Contact
-              </a>
+              </Link>
             </div>
           </div>
 
