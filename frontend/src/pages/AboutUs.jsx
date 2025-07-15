@@ -1,4 +1,5 @@
 import React from 'react';
+import WhyChooseUs from '../components/WhyChooseUs';
 import CallToAction from '../components/CallToAction';
 
 const stats = [
@@ -18,75 +19,28 @@ const stats = [
 
 const team = [
   {
-    // name: 'Dr. Sarah Johnson',
-    // role: 'Academic Director',
-    // desc: 'Ph.D. in Literature with 15+ years of academic writing experience.',
-    // img: 'https://randomuser.me/api/portraits/women/44.jpg',
-    name: 'Elsa Jeans',
+    name: 'Dr. Sarah Johnson',
     role: 'Academic Director',
-    desc: 'Ph.D. in porn with 15+ years of academic writing experience.',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsFKtnyqC3l54wrjAVXgj39hlC-3n7-d44_g&s',
+    desc: 'Ph.D. in Literature with 15+ years of academic writing experience.',
+    img: 'https://randomuser.me/api/portraits/women/44.jpg',
   },
   {
-    // name: 'Prof. Michael Chen',
-    // role: 'Research Head',
-    // desc: 'Expert in research methodology with numerous published papers.',
-    // img: 'https://randomuser.me/api/portraits/men/32.jpg',
-    name: 'Mia Malkova',
-    role: 'Music Director',
-    desc: 'Ph.D. in porn with 10+ years of academic writing experience.',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd9h_jFuf447IFw_FhbjcQTPfAmBTGxIsUeg&s',
+    name: 'Prof. Michael Chen',
+    role: 'Research Head',
+    desc: 'Expert in research methodology with numerous published papers.',
+    img: 'https://randomuser.me/api/portraits/men/32.jpg',
   },
   {
-    // name: 'Dr. Emily Brown',
-    // role: 'Quality Assurance',
-    // desc: 'Ensures the highest standards of academic writing across all projects.',
-    // img: 'https://randomuser.me/api/portraits/women/65.jpg',
-     name: 'Molly Little',
-    role: 'Movie Director',
-    desc: 'Ph.D. in porn with 4+ years of academic writing experience.',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUBpcSQuB5jxwEyVy9gq14T-skNQ3F7HWFwQ&s',
+    name: 'Dr. Emily Brown',
+    role: 'Quality Assurance',
+    desc: 'Ensures the highest standards of academic writing across all projects.',
+    img: 'https://randomuser.me/api/portraits/women/65.jpg',
   },
   {
-    // name: 'Prof. David Wilson',
-    // role: 'Subject Expert',
-    // desc: 'Specializes in multiple academic disciplines with 12+ years experience.',
-    // img: 'https://randomuser.me/api/portraits/men/41.jpg',
-     name: 'Comatozze',
-    role: 'Freshie',
-    desc: 'Graduate From Fast Nuces',
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROMOLesQBVwKDj9V4_bECyKh9AXnuchNuCeg&s',
-  },
-];
-
-const values = [
-  {
-    icon: (
-      <svg className="w-8 h-8 mx-auto mb-2 text-red-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-    ),
-    title: 'Excellence',
-    desc: 'We strive for academic excellence in every project we undertake, ensuring the highest quality standards.'
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8 mx-auto mb-2 text-red-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-    ),
-    title: 'Timeliness',
-    desc: 'Meeting deadlines is crucial in academia. We ensure punctual delivery without compromising quality.'
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8 mx-auto mb-2 text-red-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M9 12l2 2l4-4"/><circle cx="12" cy="12" r="10"/></svg>
-    ),
-    title: 'Integrity',
-    desc: 'Our work is original, plagiarism-free, and adheres to academic integrity standards.'
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8 mx-auto mb-2 text-red-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M12 2l2 7h7l-5.5 4 2 7-5.5-4-5.5 4 2-7L3 9h7z"/></svg>
-    ),
-    title: 'Expertise',
-    desc: 'Our team consists of PhD-qualified experts across various academic disciplines.'
+    name: 'Prof. David Wilson',
+    role: 'Subject Expert',
+    desc: 'Specializes in multiple academic disciplines with 12+ years experience.',
+    img: 'https://randomuser.me/api/portraits/men/41.jpg',
   },
 ];
 
@@ -130,21 +84,8 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Our Values */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-800">Our Values</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {values.map((value, i) => (
-              <div key={i} className="bg-gray-50 rounded-xl p-8 text-center shadow-sm">
-                <div>{value.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{value.title}</h3>
-                <p className="text-gray-600">{value.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Our Values (reuse component) */}
+      <WhyChooseUs />
 
       {/* Leadership Team */}
       <section className="py-16 bg-gray-50">
@@ -163,7 +104,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action (reuse component) */}
       <CallToAction />
     </div>
   );

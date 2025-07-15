@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CallToAction from '../components/CallToAction';
 
 const whatsappNumber = '+923365082290';
 const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^\d]/g, '')}`;
@@ -106,6 +107,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
+      <CallToAction />
     </div>
   );
 };
