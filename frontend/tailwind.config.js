@@ -8,17 +8,31 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#DC2626',
-          50: '#FEF2F2',
-          100: '#FEE2E2',
-          500: '#DC2626',
-          600: '#DC2626',
-          700: '#B91C1C',
-        }
+          DEFAULT: '#1E3A8A',
+          50: '#F3F4F6',
+          100: '#DBEAFE',
+          500: '#1E3A8A',
+          600: '#1E40AF',
+          700: '#1E293B',
+        },
+        secondary: {
+          DEFAULT: '#F59E0B',
+          600: '#D97706',
+        },
+        accent: {
+          DEFAULT: '#10B981',
+        },
+        neutral: {
+          DEFAULT: '#F3F4F6',
+        },
+        text: {
+          DEFAULT: '#111827',
+        },
+        white: '#FFFFFF',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      }
+        sans: ['Poppins', 'Inter', 'system-ui', 'sans-serif'],
+      },
     },
   },
   plugins: [],

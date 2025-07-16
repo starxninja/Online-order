@@ -8,6 +8,8 @@ import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import Academics from './pages/Academics';
 import Services from './pages/Services';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (
