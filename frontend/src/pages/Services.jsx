@@ -15,7 +15,6 @@ const Services = () => {
       <DetailedServicesSection />
       <ServicesWhyChooseUs />
       <ServicesTestimonials />
-      <ServicesCallToAction />
       
     </div>
   );

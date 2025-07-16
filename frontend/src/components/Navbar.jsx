@@ -21,9 +21,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center select-none">
-            <span className="text-2xl font-bold tracking-tight font-sans">
-              <span className="text-primary">Grade</span>
-              <span className="text-secondary font-semibold">Boost</span>
+            <span className="text-2xl font-bold tracking-tight font-sans" style={{ fontFamily: 'Poppins, Inter, sans-serif' }}>
+              <span className="text-primary font-extrabold">Global</span>
+              <span className="text-secondary font-semibold">assigntech</span>
             </span>
           </Link>
 

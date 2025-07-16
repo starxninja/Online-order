@@ -36,7 +36,7 @@ const WhyChooseUs = () => {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary mb-4">Why Choose GradeBoost?</h2>
+          <h2 className="text-4xl font-bold text-primary mb-4">Why Choose <span className="text-primary font-extrabold">Global</span><span className="text-accent font-semibold">assigntech</span>?</h2>
           <p className="text-xl text-text max-w-3xl mx-auto">
             We deliver excellence through our commitment to quality, expertise, and customer satisfaction.
           </p>

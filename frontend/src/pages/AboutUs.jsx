@@ -1,6 +1,7 @@
 import React from 'react';
 import WhyChooseUs from '../components/WhyChooseUs';
 import CallToAction from '../components/CallToAction';
+import { motion } from 'framer-motion';
 
 const stats = [
   { icon: (
@@ -44,19 +45,60 @@ const team = [
   },
 ];
 
+// Timeline data
+const timeline = [
+  { year: '2015', event: 'Founded as a small team of academic writers.' },
+  { year: '2017', event: 'Expanded services to include research and thesis writing.' },
+  { year: '2019', event: 'Reached 5,000+ completed projects.' },
+  { year: '2021', event: 'Launched 24/7 support and global operations.' },
+  { year: '2023', event: 'Rebranded as Globalassigntech with a new digital platform.' },
+];
+
+// Timeline component (inline for now)
+const Timeline = () => (
+  <div className="relative max-w-3xl mx-auto my-16">
+    <div className="border-l-4 border-accent absolute h-full left-6 top-0"></div>
+    <ul className="space-y-12 pl-16">
+      {timeline.map((item, i) => (
+        <motion.li
+          key={i}
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: i * 0.15 }}
+          className="relative"
+        >
+          <div className="absolute left-[-2.25rem] top-1.5 w-8 h-8 rounded-full bg-white border-4 border-accent flex items-center justify-center font-bold text-primary text-lg shadow-md">
+            {item.year}
+          </div>
+          <div className="bg-white rounded-xl shadow p-6 ml-2 text-gray-800 font-medium text-base">
+            {item.event}
+          </div>
+        </motion.li>
+      ))}
+    </ul>
+  </div>
+);
+
 const AboutUs = () => {
   return (
     <div className="bg-white w-full">
       {/* Hero Section */}
-      <section className="bg-red-600 text-white py-20 relative">
+      <section className="bg-gradient-to-br from-primary to-secondary text-white py-20 relative">
         <div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Grade Boost Digitals</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Globalassigntech</h1>
           <p className="text-xl md:text-2xl font-medium">Your Trusted Partner in Academic Excellence</p>
         </div>
       </section>
 
       {/* Our Story */}
-      <section className="py-16 bg-white">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7 }}
+        className="py-16 bg-white"
+      >
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Our Story</h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-4">
@@ -69,20 +111,36 @@ const AboutUs = () => {
             Today, we pride ourselves on maintaining the highest standards of academic integrity while providing personalized support to each student. Our commitment to quality, originality, and timely delivery has made us a trusted partner in academic success.
           </p>
         </div>
-      </section>
+      </motion.section>
+
+      {/* Timeline Section */}
+      <Timeline />
 
       {/* Stats Section */}
-      <section className="bg-red-600 py-12">
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="bg-gradient-to-br from-primary to-accent py-12"
+      >
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col items-center justify-center text-white">
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className="flex flex-col items-center justify-center text-white"
+            >
               {stat.icon}
               <div className="text-3xl font-bold mb-1">{stat.label}</div>
               <div className="text-lg font-medium">{stat.desc}</div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* Our Values (reuse component) */}
       <WhyChooseUs />
@@ -93,12 +151,20 @@ const AboutUs = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-gray-800">Our Leadership Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {team.map((member, i) => (
-              <div key={i} className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center">
-                <img src={member.img} alt={member.name} className="w-28 h-28 rounded-full object-cover mb-4" />
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: i * 0.2 }}
+                whileHover={{ scale: 1.07, boxShadow: '0 8px 32px 0 rgba(16,185,129,0.15)' }}
+                className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center text-center border-2 border-transparent hover:border-accent hover:shadow-xl transition-all duration-300 group"
+              >
+                <img src={member.img} alt={member.name} className="w-28 h-28 rounded-full object-cover mb-4 border-4 border-accent/20 group-hover:border-accent transition-all duration-300" />
                 <div className="text-lg font-semibold text-gray-900">{member.name}</div>
-                <div className="text-red-600 font-medium mb-2">{member.role}</div>
+                <div className="text-accent font-medium mb-2">{member.role}</div>
                 <div className="text-gray-600 text-sm">{member.desc}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

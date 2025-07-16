@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import AcademicCard from '../components/AcademicCard';
 import AcademicModal from '../components/AcademicModal';
 import CallToAction from '../components/CallToAction';
+import { motion } from 'framer-motion';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const categories = [
   { key: 'all', label: 'All Services' },
@@ -256,7 +260,7 @@ const Academics = () => {
 
   const filtered = selectedCategory === 'all'
     ? academics
-    : academics.filter(a => a.category === selectedCategory);
+    : academics.filter(a => a.category === selectedCategory || (selectedCategory === 'thesis' && a.category === 'thesis'));
 
   // For the main heading (e.g., Information Technology, Management, etc.)
   const mainCategory = selectedCategory === 'all' ? '' : categories.find(c => c.key === selectedCategory)?.label;
@@ -264,7 +268,7 @@ const Academics = () => {
   return (
     <div className="bg-white w-full">
       {/* Hero Section */}
-      <section className="bg-red-600 text-white py-20 relative">
+      <section className="bg-gradient-to-br from-primary to-secondary text-white py-20 relative">
         <div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Academics</h1>
           <p className="text-xl md:text-2xl font-medium">Our categories of academic writing services</p>
@@ -272,35 +276,83 @@ const Academics = () => {
       </section>
 
       {/* Filter Buttons */}
-      <div className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap gap-4 justify-center">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7 }}
+        className="max-w-7xl mx-auto px-4 py-8 flex flex-wrap gap-4 justify-center"
+      >
         {categories.map(cat => (
-          <button
+          <motion.button
             key={cat.key}
-            className={`px-6 py-2 rounded-full font-semibold text-lg shadow transition-all ${selectedCategory === cat.key ? 'bg-gradient-to-r from-red-500 to-red-400 text-white' : 'bg-gray-100 text-gray-800 hover:bg-red-100'}`}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.97 }}
+            className={`px-6 py-3 rounded-full font-semibold text-lg shadow transition-colors duration-300 ${selectedCategory === cat.key ? 'bg-gradient-to-r from-primary to-accent text-white' : 'bg-gray-100 text-gray-800 hover:bg-accent/10'}`}
             onClick={() => setSelectedCategory(cat.key)}
           >
             {cat.label}
-          </button>
+          </motion.button>
         ))}
-      </div>
+      </motion.div>
 
       {/* Main Category Heading */}
       {mainCategory && (
-        <h2 className="text-4xl font-bold text-center mb-8">{mainCategory}</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="text-4xl font-bold text-center mb-8"
+        >
+          {mainCategory}
+        </motion.h2>
       )}
 
-      {/* Cards Grid */}
-      <div className="max-w-7xl mx-auto px-4 pb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filtered.map((item, idx) => (
-          <AcademicCard
-            key={item.title}
-            image={item.image}
-            title={item.title}
-            description={item.description}
-            highlight={item.highlight}
-            onReadMore={() => setModalData(item)}
-          />
-        ))}
+      {/* Cards Carousel/Stack */}
+      <div className="max-w-7xl mx-auto px-4 pb-16">
+        {/* Carousel for md and up */}
+        <div className="hidden md:block">
+          <Slider
+            dots={true}
+            infinite={true}
+            speed={500}
+            slidesToShow={3}
+            slidesToScroll={1}
+            responsive={[
+              { breakpoint: 1024, settings: { slidesToShow: 2 } },
+              { breakpoint: 768, settings: { slidesToShow: 1 } },
+            ]}
+            arrows={false}
+            autoplay={true}
+            autoplaySpeed={6000}
+          >
+            {filtered.map((item, idx) => (
+              <div key={item.title} className="px-4">
+                <AcademicCard
+                  image={item.image}
+                  title={item.title}
+                  description={item.description}
+                  highlight={item.highlight}
+                  onReadMore={() => setModalData(item)}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+        {/* Vertical stack for mobile */}
+        <div className="block md:hidden space-y-8">
+          {filtered.map((item, idx) => (
+            <AcademicCard
+              key={item.title}
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              highlight={item.highlight}
+              onReadMore={() => setModalData(item)}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Modal */}
@@ -315,12 +367,6 @@ const Academics = () => {
         demoUrl={modalData?.demoUrl}
         demoLabel={modalData?.demoLabel}
       />
-
-      {/* Why Choose Us Section (reuse) */}
-      <div className="bg-white">
-        <h2 className="text-4xl font-bold text-center mb-8">Why Choose Our Services?</h2>
-        {/* You can reuse WhyChooseUs here if you want, or keep this heading only */}
-      </div>
 
       {/* Call to Action (reuse) */}
       <CallToAction />

@@ -31,7 +31,7 @@ const Hero = () => {
           className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
         >
           Unlock Your Academic Potential<br />
-          with <span className="text-accent">GradeBoost</span>
+          with <span className="text-primary font-extrabold">Global</span><span className="text-accent font-semibold">assigntech</span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 40 }}
