@@ -135,7 +135,7 @@ const DetailedServicesSection = () => {
           <Slider
             dots={true}
             infinite={true}
-            speed={500}
+            speed={1200}
             slidesToShow={4}
             slidesToScroll={1}
             responsive={[
@@ -145,7 +145,7 @@ const DetailedServicesSection = () => {
             ]}
             arrows={false}
             autoplay={true}
-            autoplaySpeed={6000}
+            autoplaySpeed={1000}
           >
             {services.map((service, index) => (
               <div key={index} className="px-4">

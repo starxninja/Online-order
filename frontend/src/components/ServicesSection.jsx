@@ -30,7 +30,7 @@ const services = [
 const sliderSettings = {
   dots: true,
   infinite: true,
-  speed: 500,
+  speed: 1200,
   slidesToShow: 3,
   slidesToScroll: 1,
   responsive: [
@@ -39,7 +39,7 @@ const sliderSettings = {
   ],
   arrows: false,
   autoplay: true,
-  autoplaySpeed: 6000,
+  autoplaySpeed: 1000,
 };
 
 const ServicesSection = () => {

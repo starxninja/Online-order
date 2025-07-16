@@ -320,7 +320,7 @@ const Academics = () => {
           <Slider
             dots={true}
             infinite={true}
-            speed={500}
+            speed={1200}
             slidesToShow={3}
             slidesToScroll={1}
             responsive={[
@@ -329,7 +329,7 @@ const Academics = () => {
             ]}
             arrows={false}
             autoplay={true}
-            autoplaySpeed={6000}
+            autoplaySpeed={1000}
           >
             {filtered.map((item, idx) => (
               <div key={item.title} className="px-4">
