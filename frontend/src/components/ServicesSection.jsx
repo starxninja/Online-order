@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import { useInView } from 'react-intersection-observer';
 import ServiceCard from './ServiceCard';
@@ -45,6 +45,12 @@ const sliderSettings = {
 const ServicesSection = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
+  useEffect(() => {
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 100);
+  }, []);
+
   return (
     <section ref={ref} className="py-20 bg-neutral w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,29 +63,10 @@ const ServicesSection = () => {
         {services.length === 0 ? (
           <div className="text-center text-text/60 py-12">No services available at the moment.</div>
         ) : (
-          <>
-            {/* Carousel for md and up */}
-            <div className="hidden md:block">
-              <Slider {...sliderSettings}>
-                {services.map((service, index) => (
-                  <div key={index} className="px-4">
-                    <ServiceCard
-                      icon={service.icon}
-                      title={service.title}
-                      description={service.description}
-                      price={service.price}
-                      inView={inView}
-                      index={index}
-                    />
-                  </div>
-                ))}
-              </Slider>
-            </div>
-            {/* Vertical stack for mobile */}
-            <div className="block md:hidden space-y-8">
-              {services.map((service, index) => (
+          <Slider {...sliderSettings}>
+            {services.map((service, index) => (
+              <div key={index} className="px-4">
                 <ServiceCard
-                  key={index}
                   icon={service.icon}
                   title={service.title}
                   description={service.description}
@@ -87,9 +74,9 @@ const ServicesSection = () => {
                   inView={inView}
                   index={index}
                 />
-              ))}
-            </div>
-          </>
+              </div>
+            ))}
+          </Slider>
         )}
       </div>
     </section>

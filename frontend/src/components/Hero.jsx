@@ -25,7 +25,7 @@ const Hero = ({ backgroundImage }) => {
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
   return (
-    <section className="relative overflow-hidden min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-primary to-secondary">
+    <section className="relative overflow-hidden min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-primary to-secondary pointer-events-none">
       {backgroundImage && (
         <img src={backgroundImage} alt="Books background" className="absolute inset-0 w-full h-full object-cover opacity-30 z-0" />
       )}
@@ -33,7 +33,7 @@ const Hero = ({ backgroundImage }) => {
         <Particles options={particlesOptions} />
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/70" />
       </div>
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center pointer-events-auto">
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}

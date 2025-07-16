@@ -9,13 +9,15 @@ import heroBg from '../assets/book-bg.jpg'; // Add your image to assets and impo
 
 const Home = () => {
   return (
-    <div className="bg-white w-full">
-      <Hero backgroundImage={heroBg} />
-      <ServicesSection />
-      <FeaturesHighlight />
-      <WhyChooseUs />
-      <Testimonials />
-      <CallToAction />
+    <div className="min-h-screen flex flex-col bg-white w-full">
+      <main className="flex-grow">
+        <Hero backgroundImage={heroBg} />
+        <ServicesSection />
+        <FeaturesHighlight />
+        <WhyChooseUs />
+        <Testimonials />
+        <CallToAction />
+      </main>
     </div>
   );
 };
