@@ -1,5 +1,9 @@
 import React from 'react';
 import DetailedServiceCard from './DetailedServiceCard';
+import Slider from 'react-slick';
+import { motion } from 'framer-motion';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const DetailedServicesSection = () => {
   const services = [
@@ -118,9 +122,47 @@ const DetailedServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <motion.section
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7 }}
+      className="py-20 bg-gray-50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Carousel for md and up */}
+        <div className="hidden md:block">
+          <Slider
+            dots={true}
+            infinite={true}
+            speed={500}
+            slidesToShow={4}
+            slidesToScroll={1}
+            responsive={[
+              { breakpoint: 1280, settings: { slidesToShow: 3 } },
+              { breakpoint: 1024, settings: { slidesToShow: 2 } },
+              { breakpoint: 768, settings: { slidesToShow: 1 } },
+            ]}
+            arrows={false}
+            autoplay={true}
+            autoplaySpeed={6000}
+          >
+            {services.map((service, index) => (
+              <div key={index} className="px-4">
+                <DetailedServiceCard
+                  icon={service.icon}
+                  title={service.title}
+                  description={service.description}
+                  price={service.price}
+                  features={service.features}
+                  index={index}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+        {/* Vertical stack for mobile */}
+        <div className="block md:hidden space-y-8">
           {services.map((service, index) => (
             <DetailedServiceCard
               key={index}
@@ -129,11 +171,12 @@ const DetailedServicesSection = () => {
               description={service.description}
               price={service.price}
               features={service.features}
+              index={index}
             />
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
