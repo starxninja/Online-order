@@ -12,7 +12,7 @@ const categories = [
   { key: 'management', label: 'Management' },
   { key: 'finance', label: 'Finance' },
   { key: 'it', label: 'Information Technology' },
-  { key: 'thesis', label: 'Thesis' },
+  // Thesis filter removed
 ];
 
 const academics = [
@@ -237,7 +237,7 @@ const academics = [
       description: 'Writing and analysis for financial forecasting, including models, data analysis, and scenario planning.'
     }
   },
-  // Thesis
+  // Thesis (only one entry)
   {
     category: 'thesis',
     title: 'Dissertation/Thesis Writing',
@@ -260,7 +260,7 @@ const Academics = () => {
 
   const filtered = selectedCategory === 'all'
     ? academics
-    : academics.filter(a => a.category === selectedCategory || (selectedCategory === 'thesis' && a.category === 'thesis'));
+    : academics.filter(a => a.category === selectedCategory);
 
   // For the main heading (e.g., Information Technology, Management, etc.)
   const mainCategory = selectedCategory === 'all' ? '' : categories.find(c => c.key === selectedCategory)?.label;
