@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import CallToAction from '../components/CallToAction';
 import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
+import heroBg from '../assets/book-bg.jpg'; // Updated image
 
 const whatsappNumber = '+923365082290';
 const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^\d]/g, '')}`;
@@ -44,7 +45,10 @@ const Contact = () => {
         transition={{ duration: 0.7 }}
         className="bg-gradient-to-br from-primary to-secondary text-white py-20 relative"
       >
-        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center">
+        <img src={heroBg} alt="Books background" className="absolute inset-0 w-full h-full object-cover opacity-30 z-0" />
+        {/* Make the overlay semi-transparent to reveal the background image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/70 z-0"></div>
+        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl md:text-2xl font-medium">Get in touch with our expert team to discuss your academic writing needs.</p>
         </div>

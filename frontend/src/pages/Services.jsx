@@ -6,12 +6,13 @@ import ServicesWhyChooseUs from '../components/ServicesWhyChooseUs';
 import ServicesTestimonials from '../components/ServicesTestimonials';
 import ServicesCallToAction from '../components/ServicesCallToAction';
 import Footer from '../components/Footer';
+import heroBg from '../assets/book-bg.jpg'; // Updated image
 
 const Services = () => {
   return (
     <div className="min-h-screen bg-white">
       
-      <ServicesHero />
+      <ServicesHero backgroundImage={heroBg} />
       <DetailedServicesSection />
       <ServicesWhyChooseUs />
       <ServicesTestimonials />

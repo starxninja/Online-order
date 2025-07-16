@@ -2,6 +2,7 @@ import React from 'react';
 import WhyChooseUs from '../components/WhyChooseUs';
 import CallToAction from '../components/CallToAction';
 import { motion } from 'framer-motion';
+import heroBg from '../assets/book-bg.jpg'; // Updated image
 
 const stats = [
   { icon: (
@@ -85,7 +86,10 @@ const AboutUs = () => {
     <div className="bg-white w-full">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary to-secondary text-white py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center">
+        <img src={heroBg} alt="Books background" className="absolute inset-0 w-full h-full object-cover opacity-30 z-0" />
+        {/* Make the overlay semi-transparent to reveal the background image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/70 z-0"></div>
+        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">About Globalassigntech</h1>
           <p className="text-xl md:text-2xl font-medium">Your Trusted Partner in Academic Excellence</p>
         </div>

@@ -17,11 +17,15 @@ const particlesOptions = {
   },
 };
 
-const Hero = () => {
+const Hero = ({ backgroundImage }) => {
   return (
     <section className="relative overflow-hidden min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-primary to-secondary">
+      {backgroundImage && (
+        <img src={backgroundImage} alt="Books background" className="absolute inset-0 w-full h-full object-cover opacity-30 z-0" />
+      )}
       <div className="absolute inset-0 z-0">
         <Particles options={particlesOptions} />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/70" />
       </div>
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 text-center">
         <motion.h1

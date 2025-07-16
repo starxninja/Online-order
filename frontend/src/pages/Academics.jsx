@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import heroBg from '../assets/book-bg.jpg'; // Updated image
 
 const categories = [
   { key: 'all', label: 'All Services' },
@@ -269,7 +270,10 @@ const Academics = () => {
     <div className="bg-white w-full">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary to-secondary text-white py-20 relative">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center">
+        <img src={heroBg} alt="Books background" className="absolute inset-0 w-full h-full object-cover opacity-30 z-0" />
+        {/* Make the overlay semi-transparent to reveal the background image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/70 z-0"></div>
+        <div className="max-w-7xl mx-auto px-4 flex flex-col items-center justify-center text-center relative z-10">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Academics</h1>
           <p className="text-xl md:text-2xl font-medium">Our categories of academic writing services</p>
         </div>
