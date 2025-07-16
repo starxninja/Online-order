@@ -106,7 +106,7 @@ const AboutUs = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Our Story</h2>
           <p className="text-gray-700 text-lg leading-relaxed mb-4">
-            Founded in 2015, Grade Boost Digitals has grown from a small team of dedicated academic writers to a comprehensive academic writing service trusted by students worldwide. Our journey began with a simple mission: to help students achieve academic excellence through quality writing support.
+            Founded in 2021, Globalassigntech has grown from a small team of dedicated academic writers to a comprehensive academic writing service trusted by students worldwide. Our journey began with a simple mission: to help students achieve academic excellence through quality writing support.
           </p>
           <p className="text-gray-700 text-lg leading-relaxed mb-4">
             Over the years, we've assembled a team of highly qualified academic professionals, each bringing unique expertise and experience to our services. Our writers hold advanced degrees from prestigious universities and have extensive experience in academic writing across various disciplines.

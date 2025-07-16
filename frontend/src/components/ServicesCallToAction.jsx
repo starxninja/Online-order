@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ServicesCallToAction = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-20 bg-gradient-to-r from-primary to-accent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -10,7 +12,7 @@ const ServicesCallToAction = () => {
         <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto">
           Get started with our professional academic writing services today
         </p>
-        <button className="bg-white text-primary hover:bg-accent/10 px-8 py-4 rounded-full text-lg font-semibold transition-colors shadow-lg">
+        <button className="bg-white text-primary hover:bg-accent/10 px-8 py-4 rounded-full text-lg font-semibold transition-colors shadow-lg" onClick={() => navigate('/contact')}>
           Get Started Now
         </button>
       </div>

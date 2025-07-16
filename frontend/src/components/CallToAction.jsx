@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
 import Wavify from 'react-wavify';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const CallToAction = () => {
   const btnRef = useRef(null);
+  const navigate = useNavigate();
 
   // Simple ripple effect
   const handleRipple = (e) => {
@@ -17,6 +19,14 @@ const CallToAction = () => {
     circle.classList.add('ripple');
     button.appendChild(circle);
     setTimeout(() => circle.remove(), 600);
+  };
+
+  const handleClick = (e) => {
+    handleRipple(e);
+    setTimeout(() => {
+      navigate('/contact');
+      setTimeout(() => window.scrollTo({ top: 0, behavior: 'auto' }), 50);
+    }, 200); // Delay for ripple effect
   };
 
   return (
@@ -53,7 +63,7 @@ const CallToAction = () => {
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.97 }}
           className="relative overflow-hidden px-10 py-4 rounded-full text-lg font-semibold bg-gradient-to-r from-primary to-accent text-white shadow-lg transition-all duration-300 focus:outline-none"
-          onClick={handleRipple}
+          onClick={handleClick}
         >
           <span className="relative z-10">Start Writing Now</span>
         </motion.button>

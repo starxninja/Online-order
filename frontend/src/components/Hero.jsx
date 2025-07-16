@@ -2,6 +2,7 @@ import React from 'react';
 import { Particles } from '@tsparticles/react';
 import { loadFull } from 'tsparticles';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const particlesOptions = {
   background: { color: 'transparent' },
@@ -18,6 +19,11 @@ const particlesOptions = {
 };
 
 const Hero = ({ backgroundImage }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/contact');
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  };
   return (
     <section className="relative overflow-hidden min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-primary to-secondary">
       {backgroundImage && (
@@ -50,6 +56,7 @@ const Hero = ({ backgroundImage }) => {
           whileTap={{ scale: 0.97 }}
           className="px-8 py-4 rounded-full text-lg font-semibold bg-white text-primary shadow-neumorphic transition-all duration-300 hover:shadow-neumorphic-hover focus:outline-none"
           style={{ boxShadow: '8px 8px 24px #d1d5db, -8px -8px 24px #fff' }}
+          onClick={handleClick}
         >
           Start Writing Now
         </motion.button>

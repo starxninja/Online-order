@@ -48,11 +48,13 @@ const Navbar = () => {
 
           {/* Action Button */}
           <div className="hidden md:block ml-6">
-            <button
-              className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full text-base font-semibold shadow-md transition-all duration-300 animate-pulse hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent"
-            >
-              Start Writing Now
-            </button>
+            <Link to="/contact">
+              <button
+                className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full text-base font-semibold shadow-md transition-all duration-300 animate-pulse hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent"
+              >
+                Start Writing Now
+              </button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -96,11 +98,13 @@ const Navbar = () => {
                   {link.label}
                 </Link>
               ))}
-              <button
-                className="mt-8 bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full text-base font-semibold shadow-md transition-all duration-300 animate-pulse hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent"
-              >
-                Start Writing Now
-              </button>
+              <Link to="/contact">
+                <button
+                  className="mt-8 bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full text-base font-semibold shadow-md transition-all duration-300 animate-pulse hover:scale-105 focus:outline-none focus:ring-2 focus:ring-accent"
+                >
+                  Start Writing Now
+                </button>
+              </Link>
             </nav>
           </motion.div>
         )}
