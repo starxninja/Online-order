@@ -8,6 +8,7 @@ const categories = [
   { key: 'management', label: 'Management' },
   { key: 'finance', label: 'Finance' },
   { key: 'it', label: 'Information Technology' },
+  { key: 'thesis', label: 'Thesis' },
 ];
 
 const academics = [
@@ -215,6 +216,19 @@ const academics = [
       description: 'Writing and analysis for financial forecasting, including models, data analysis, and scenario planning.'
     }
   },
+  // Thesis
+  {
+    category: 'thesis',
+    title: 'Dissertation/Thesis Writing',
+    image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80',
+    description: 'Professional dissertation and thesis writing services for all academic levels.',
+    details: {
+      price: '$40/page',
+      benefits: ['Original research', 'Expert guidance', 'Formatting & editing', 'Plagiarism-free'],
+      description: 'Comprehensive support for dissertation and thesis writing, including research, writing, formatting, and editing for all academic levels.'
+    },
+    highlight: true
+  },
 ];
 
 const Academics = () => {
@@ -279,6 +293,24 @@ const Academics = () => {
         description={modalData?.details?.description}
         price={modalData?.details?.price}
         benefits={modalData?.details?.benefits}
+        demoUrl={
+          modalData?.title === 'Software Development'
+            ? 'https://with-andy.com/'
+            : modalData?.title === 'Cloud Computing Solutions'
+            ? 'https://resilient-moonbeam-529a27.netlify.app/'
+            : modalData?.title === 'Dissertation/Thesis Writing'
+            ? 'https://drive.google.com/your-thesis-demo-link' // <-- Replace with your actual Drive link
+            : undefined
+        }
+        demoLabel={
+          modalData?.title === 'Software Development'
+            ? 'Live Demo'
+            : modalData?.title === 'Cloud Computing Solutions'
+            ? 'Open Demo'
+            : modalData?.title === 'Dissertation/Thesis Writing'
+            ? 'Live Demo'
+            : undefined
+        }
       />
 
       {/* Why Choose Us Section (reuse) */}

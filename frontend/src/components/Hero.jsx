@@ -1,5 +1,5 @@
 import React from 'react';
-import Particles from 'react-particles';
+import { Particles } from '@tsparticles/react';
 import { loadFull } from 'tsparticles';
 import { motion } from 'framer-motion';
 
