@@ -22,18 +22,23 @@ const academics = [
       price: '$30/page',
       benefits: ['Code documentation', 'Project reports', 'Best practices', 'Modern tech stack'],
       description: 'Comprehensive writing and documentation for software development projects, including code explanations, project reports, and more.'
-    }
+    },
+    demoUrl: 'https://with-andy.com/',
+    demoLabel: 'Live Demo',
   },
   {
     category: 'it',
-    title: 'Data Science',
+    title: 'Software Testing',
     image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80',
-    description: 'Professional writing services for data science and analytics projects.',
+    description: 'Professional writing services for software testing and QA projects.',
     details: {
       price: '$32/page',
-      benefits: ['Data analysis', 'Machine learning', 'Visualization', 'Project documentation'],
-      description: 'Expert writing for data science projects, including analytics, machine learning, and data visualization.'
-    }
+      benefits: ['Test plans', 'Automation', 'Bug reports', 'QA documentation'],
+      description: 'Expert writing for software testing projects, including test plans, automation, and bug reporting.'
+    },
+    demoUrl: 'https://drive.google.com/file/d/1RQiFcVas_B0DiJ75xCat2YV6Z1XVqE-V/view?usp=drive_link',
+    demoLabel: 'Live Demo',
+    highlight: true
   },
   {
     category: 'it',
@@ -45,6 +50,8 @@ const academics = [
       benefits: ['Security analysis', 'Threat reports', 'Best practices', 'Case studies'],
       description: 'In-depth writing for cybersecurity topics, including threat analysis, security best practices, and more.'
     },
+    demoUrl: 'https://drive.google.com/file/d/1aAhDha2ZMMVSGKO60TlOmh9Xbk8RIvo6/view?usp=drive_link',
+    demoLabel: 'Live Demo',
     highlight: true
   },
   {
@@ -56,7 +63,9 @@ const academics = [
       price: '$28/page',
       benefits: ['Cloud migration', 'Architecture design', 'Cost optimization'],
       description: 'Writing and consulting for cloud computing projects, including migration, architecture, and optimization.'
-    }
+    },
+    demoUrl: 'https://resilient-moonbeam-529a27.netlify.app/',
+    demoLabel: 'Open Demo',
   },
   {
     category: 'it',
@@ -67,7 +76,9 @@ const academics = [
       price: '$30/page',
       benefits: ['IT strategy', 'Business alignment', 'Tech roadmaps'],
       description: 'Consulting and writing for IT strategy, business alignment, and technology roadmaps.'
-    }
+    },
+    demoUrl: 'https://drive.google.com/file/d/1mOa6XMR4HIJA_5AW1G9kVPBNbZGVZbj4/view?usp=drive_link',
+    demoLabel: 'Live Demo',
   },
   {
     category: 'it',
@@ -90,7 +101,9 @@ const academics = [
       price: '$25/page',
       benefits: ['Expert business analysts', 'Strategic frameworks', 'Real-world case studies', 'Industry analysis'],
       description: 'Comprehensive support for developing and analyzing business cases, strategic management reports, and organizational studies.'
-    }
+    },
+    demoUrl: 'https://drive.google.com/file/d/12LIFFyUYPVpAWY-dXJhftbHaNztioMwc/view?usp=drive_link',
+    demoLabel: 'Live Demo',
   },
   {
     category: 'management',
@@ -135,7 +148,9 @@ const academics = [
       price: '$29/page',
       benefits: ['Leadership skills', 'Competency development', 'Workshops'],
       description: 'Programs and writing for leadership development, including skills, competencies, and workshops.'
-    }
+    },
+    demoUrl: 'https://docs.google.com/document/d/1QsXgjv-Mh_O7dN4ebibsS5-btXcFPM-h/edit?tab=t.0#heading=h.715vutkcvww7',
+    demoLabel: 'Live Demo',
   },
   {
     category: 'management',
@@ -158,7 +173,9 @@ const academics = [
       price: '$28/page',
       benefits: ['Financial modeling', 'Reporting', 'Forecasting'],
       description: 'Writing and analysis for financial analysis, including modeling, reporting, and forecasting.'
-    }
+    },
+    demoUrl: 'https://drive.google.com/file/d/1MTJlf7t47fwbZxRi9JylgRFUuoF4Y1e2/view?usp=drive_link',
+    demoLabel: 'Live Demo',
   },
   {
     category: 'finance',
@@ -227,6 +244,8 @@ const academics = [
       benefits: ['Original research', 'Expert guidance', 'Formatting & editing', 'Plagiarism-free'],
       description: 'Comprehensive support for dissertation and thesis writing, including research, writing, formatting, and editing for all academic levels.'
     },
+    demoUrl: 'https://docs.google.com/document/d/1v68-F8XJKRDbHicRP02XGySCmll3kD8K/edit?usp=drive_web&ouid=111743877213374431791&rtpof=true',
+    demoLabel: 'Live Demo',
     highlight: true
   },
 ];
@@ -293,24 +312,8 @@ const Academics = () => {
         description={modalData?.details?.description}
         price={modalData?.details?.price}
         benefits={modalData?.details?.benefits}
-        demoUrl={
-          modalData?.title === 'Software Development'
-            ? 'https://with-andy.com/'
-            : modalData?.title === 'Cloud Computing Solutions'
-            ? 'https://resilient-moonbeam-529a27.netlify.app/'
-            : modalData?.title === 'Dissertation/Thesis Writing'
-            ? 'https://drive.google.com/your-thesis-demo-link' // <-- Replace with your actual Drive link
-            : undefined
-        }
-        demoLabel={
-          modalData?.title === 'Software Development'
-            ? 'Live Demo'
-            : modalData?.title === 'Cloud Computing Solutions'
-            ? 'Open Demo'
-            : modalData?.title === 'Dissertation/Thesis Writing'
-            ? 'Live Demo'
-            : undefined
-        }
+        demoUrl={modalData?.demoUrl}
+        demoLabel={modalData?.demoLabel}
       />
 
       {/* Why Choose Us Section (reuse) */}
